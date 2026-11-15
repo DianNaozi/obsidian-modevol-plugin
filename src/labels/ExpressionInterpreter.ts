@@ -1,5 +1,5 @@
 import { Label } from "./Label";
-import { LabelConfig } from "./settings";
+import { LabelConfig } from "../settings/settings";
 
 export default class ExpressionInterpreter {
     private readonly labelConfigs: Map<string, LabelConfig>;

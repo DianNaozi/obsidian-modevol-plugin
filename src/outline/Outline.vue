@@ -11,9 +11,9 @@
 import { NTree, TreeOption, NConfigProvider, darkTheme, NSlider } from 'naive-ui';
 import { HeadingCache } from 'obsidian';
 import { defineComponent, h } from 'vue';
-import { Label } from './Label';
-import ModevolPlugin from './main';
-import { store } from './store'
+import { Label } from '../labels/Label';
+import ModevolPlugin from '../main';
+import { store } from '../state/store'
 type Option = TreeOption & {data:Label|HeadingCache,level:number,deep:number|undefined,offset:number}
 export default defineComponent({
     inject: ['plugin'],

@@ -1,5 +1,5 @@
 import { HeadingCache } from 'obsidian'
-import { Label } from './Label'
+import { Label } from '../labels/Label'
 import { reactive } from 'vue'
 
 

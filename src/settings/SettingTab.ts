@@ -1,8 +1,8 @@
 import { App, PluginSettingTab, Setting, Notice, Modal } from 'obsidian';
-import ModevolPlugin from './main';
+import ModevolPlugin from '../main';
 import { LabelConfig } from './settings';
-import { hexToRgba } from './colorUtils';
-import { sanitizeSvg } from './sanitizeSvg';
+import { hexToRgba } from '../utils/colorUtils';
+import { sanitizeSvg } from '../utils/sanitizeSvg';
 
 class InputLabelKeyModal extends Modal {
     private result: string = '';

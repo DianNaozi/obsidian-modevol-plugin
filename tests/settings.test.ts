@@ -1,4 +1,4 @@
-import { DEFAULT_SETTINGS, mergeSettings, ModevolSettings } from "../src/settings";
+import { DEFAULT_SETTINGS, mergeSettings, ModevolSettings } from "../src/settings/settings";
 
 describe("Bug 3: DEFAULT_SETTINGS color consistency", () => {
   function getColorByKey(key: string): string | undefined {

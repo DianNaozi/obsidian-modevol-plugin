@@ -1,6 +1,6 @@
-import { isKnownTagSymbol, setLabelConfigs } from "../src/ModevolWidget";
-import { DEFAULT_SETTINGS } from "../src/settings";
-import ExpressionInterpreter from "../src/ExpressionInterpreter";
+import { isKnownTagSymbol, setLabelConfigs } from "../src/editor/ModevolWidget";
+import { DEFAULT_SETTINGS } from "../src/settings/settings";
+import ExpressionInterpreter from "../src/labels/ExpressionInterpreter";
 
 jest.mock('obsidian', () => ({
     MarkdownRenderChild: class {

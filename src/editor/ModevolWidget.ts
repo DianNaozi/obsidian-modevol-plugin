@@ -1,8 +1,8 @@
 import { EditorView, WidgetType } from "@codemirror/view";
 import { MarkdownRenderChild } from "obsidian";
-import { Label } from "./Label";
-import { LabelConfig } from "./settings";
-import { sanitizeSvg } from "./sanitizeSvg";
+import { Label } from "../labels/Label";
+import { LabelConfig } from "../settings/settings";
+import { sanitizeSvg } from "../utils/sanitizeSvg";
 
 const typeClassMap = new Map<string, string>();
 let iconMap: Record<string, string> = {};

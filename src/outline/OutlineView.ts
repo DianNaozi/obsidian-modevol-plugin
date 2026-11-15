@@ -1,7 +1,7 @@
 import { ItemView, WorkspaceLeaf } from "obsidian";
 
 import { App, createApp } from "vue";
-import ModevolPlugin from "./main";
+import ModevolPlugin from "../main";
 import Outline from './Outline.vue';
 
 export const VIEW_TYPE = 'modevol-outline';

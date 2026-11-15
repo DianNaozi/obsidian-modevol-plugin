@@ -1,3 +1,4 @@
+jest.mock('../src/mindmap/register-mindmap', () => ({ registerMindmap: jest.fn() }));
 import { App, PluginManifest } from "obsidian";
 import ModevolPlugin from "../src/main";
 

@@ -68,9 +68,9 @@ jest.mock("obsidian", () => ({
   },
 }), { virtual: true });
 
-import { __sanitizeSvgForTest as sanitizeWidgetSvg } from "../src/sanitizeSvg";
-import { __sanitizeSvgForTest as sanitizeSettingSvg } from "../src/sanitizeSvg";
-import { validateImportedSettings } from "../src/SettingTab";
+import { __sanitizeSvgForTest as sanitizeWidgetSvg } from "../src/utils/sanitizeSvg";
+import { __sanitizeSvgForTest as sanitizeSettingSvg } from "../src/utils/sanitizeSvg";
+import { validateImportedSettings } from "../src/settings/SettingTab";
 
 describe("Bug 4: SVG sanitization", () => {
   const samples = [

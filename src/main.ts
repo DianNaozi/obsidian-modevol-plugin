@@ -1,12 +1,13 @@
+import { registerMindmap, refreshMindmapLabels } from './mindmap/register-mindmap';
 import type { Editor, MarkdownFileInfo, MarkdownPostProcessorContext, WorkspaceLeaf } from 'obsidian';
 import { debounce, Plugin, MarkdownView } from 'obsidian';
-import { labelField, setLabelConfigs as setStateFieldLabelConfigs } from './StateField';
-import { ModevolLabelRender, setLabelConfigs as setWidgetLabelConfigs, isKnownTagSymbol, getLabelColor } from './ModevolWidget';
-import { OutlineView, VIEW_TYPE } from './OutlineView';
-import { store } from './store';
-import { ModevolSettings, DEFAULT_SETTINGS, mergeSettings } from './settings';
-import { ModevolSettingTab } from './SettingTab';
-import { StyleManager } from './StyleManager';
+import { labelField, setLabelConfigs as setStateFieldLabelConfigs } from './editor/StateField';
+import { ModevolLabelRender, setLabelConfigs as setWidgetLabelConfigs, isKnownTagSymbol, getLabelColor } from './editor/ModevolWidget';
+import { OutlineView, VIEW_TYPE } from './outline/OutlineView';
+import { store } from './state/store';
+import { ModevolSettings, DEFAULT_SETTINGS, mergeSettings } from './settings/settings';
+import { ModevolSettingTab } from './settings/SettingTab';
+import { StyleManager } from './styles/StyleManager';
 let labelStatusBar: HTMLElement | null = null
 export default class ModevolPlugin extends Plugin {
 	markdownView?: MarkdownView
@@ -33,6 +34,7 @@ export default class ModevolPlugin extends Plugin {
 		this.registerListenter()
 		this.registerExt()
 		this.registerCommend()
+		registerMindmap(this)
 	}
 
 	async loadSettings() {
@@ -45,6 +47,7 @@ export default class ModevolPlugin extends Plugin {
 	}
 
 	refreshStyles() {
+		refreshMindmapLabels(this);
 		this.styleManager.injectStyles(this.settings.labels);
 		// 更新标签配置到各个模块
 		setStateFieldLabelConfigs(this.settings.labels);

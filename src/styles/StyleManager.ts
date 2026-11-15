@@ -1,5 +1,5 @@
-import { LabelConfig } from './settings';
-import { hexToRgba } from './colorUtils';
+import { LabelConfig } from '../settings/settings';
+import { hexToRgba } from '../utils/colorUtils';
 
 export class StyleManager {
     private styleEl: HTMLStyleElement | null = null;

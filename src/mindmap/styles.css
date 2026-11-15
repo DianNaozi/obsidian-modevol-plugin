@@ -1,0 +1,73 @@
+@import "mind-elixir/style.css";
+
+.jiangou-mindmap-view {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	overflow: hidden;
+}
+
+.jiangou-mindmap-toolbar {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 12px;
+	padding: 10px 12px;
+	border-bottom: 1px solid var(--background-modifier-border);
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}
+
+.jiangou-mindmap-canvas {
+	display: block;
+	width: 100%;
+	flex: 1;
+	min-height: 0;
+	background: var(--background-primary);
+}
+
+.jiangou-mindmap-canvas {
+    position: relative;
+    overflow: hidden;
+}
+
+.jiangou-mindmap-view .map-container {
+    font-family: var(--font-text);
+}
+
+.jiangou-mindmap-view .map-container me-tpc {
+    max-width: 300px;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+    border-radius: 6px !important;
+}
+
+/* Keep padding inside the complete node outline. */
+.jiangou-mindmap-view .map-container me-children me-parent {
+    padding: 0;
+    margin: 10px;
+}
+
+.jiangou-mindmap-view .map-container me-children me-parent > me-tpc {
+    padding: 8px 25px;
+    border: 1px solid var(--main-color);
+    background-color: var(--main-bgcolor);
+}
+
+.jiangou-mindmap-view .map-container me-tpc.jiangou-label-node {
+    background-color: color-mix(in srgb, var(--jiangou-label-color) 22%, var(--background-primary) 78%) !important;
+    color: var(--text-normal);
+}
+
+.jiangou-mindmap-view .map-container me-children me-epd {
+    top: calc(50% - 9px);
+    right: -10px;
+}
+
+.jiangou-mindmap-view .map-container me-tpc:hover {
+    box-shadow: 0 0 0 2px var(--background-modifier-border-hover);
+}
+
+.jiangou-mindmap-view .map-container me-parent:hover > me-epd.minus {
+    opacity: 0.8;
+}

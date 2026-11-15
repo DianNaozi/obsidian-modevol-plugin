@@ -1,0 +1,186 @@
+/*
+
+This CSS file will be included with your plugin, and
+available in the app when your plugin is enabled.
+
+If your plugin does not need CSS, delete this file.
+
+*/
+.mv-label {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--tag-radius);
+    font-size: var(--tag-size);
+    padding: 1px var(--tag-padding-x);
+}
+a.mv-label{
+    text-decoration-line:none;
+    pointer-events:none;
+
+}
+
+.mv-label-active{
+    color: var(--heading-formatting);
+    border: 0 none;
+    background-color: rgba(0,0,0,0);
+}
+
+.mv-content-d {
+    border-left: 2px solid var(--modevol-d-color);
+}
+.mv-dot-d{
+    padding: 1px var(--tag-padding-x);
+    text-decoration-line:none;
+    pointer-events:none;
+    background-color: var(--modevol-d-background-color);
+    border-radius: var(--tag-size );
+    border: 2px solid var(--modevol-d-color);
+}
+
+/* perview */
+.mv-pre-label {
+    display: flex;
+    align-items: center;
+    margin-left: -1em;
+}
+.mv-pre-icon{
+    display: flex;
+    align-items: center;
+    margin-right: 0em;
+}
+.mv-pre-c{
+    margin-right: 0em;
+}
+.mv-pre-title{
+    font-size: 0.8em;
+}
+
+.mv-pre-label.mv-d{
+    color: var(--modevol-d-color);
+}
+.mv-pre-label.mv-e{
+    color: var(--modevol-e-color);
+}
+.mv-pre-label.mv-t{
+    color: var(--modevol-t-color);
+}
+.mv-pre-label.mv-v{
+    color: var(--modevol-v-color);
+}
+.mv-pre-label.mv-c{
+    color: var(--modevol-c-color);
+}
+/* new label  */
+.mv-label-s {
+    color: var(--modevol-s-color);
+    background-color: var(--modevol-s-background-color);
+    border-color: var(--modevol-s-color);
+}
+.mv-label-q {
+    color: var(--modevol-q-color);
+    background-color: var(--modevol-q-background-color);
+    border-color: var(--modevol-q-color);
+}
+.mv-pre-label.mv-s{
+    color: var(--modevol-s-color);
+}
+.mv-pre-label.mv-q{
+    color: var(--modevol-q-color);
+}
+
+
+/* header  */
+
+/* .markdown-preview-view h1::before{
+    content: 'H1';
+    font-size: 0.6em;
+    margin-left: -23.4px;
+    color: var(--text-muted);
+}
+
+.markdown-preview-view h2::before{
+    content: 'H2';
+    font-size: 0.5em;
+    margin-left: -20.5px;
+    color: var(--text-muted);
+}
+.markdown-preview-view h3::before{
+    content: 'H3';
+    font-size: 0.5em;
+    margin-left: -19.5px;
+    color: var(--text-muted);
+}
+.markdown-preview-view h4::before{
+    content: 'H4';
+    font-size: 0.5em;
+    margin-left: -19.5px;
+    color: var(--text-muted);
+}
+.markdown-preview-view h5::before{
+    content: 'H5';
+    font-size: 0.4em;
+    margin-left: -15px;
+    color: var(--text-muted);
+}
+.markdown-preview-view h6::before{
+    content: 'H6';
+    font-size: 0.4em;
+    margin-left: -15px;
+    color: var(--text-muted);
+}
+.markdown-preview-view h1:hover::before{
+    margin-left: 0;
+    content: '';
+}
+.markdown-preview-view h2:hover::before{
+    margin-left: 0;
+    content: '';
+}
+.markdown-preview-view h3:hover::before{
+    margin-left: 0;
+    content: '';
+}
+.markdown-preview-view h4:hover::before{
+    margin-left: 0;
+    content: '';
+}
+.markdown-preview-view h5:hover::before{
+    margin-left: 0;
+    content: '';
+}
+.markdown-preview-view h6:hover::before{
+    margin-left: 0;
+    content: '';
+} */
+
+/* Settings Panel Styles */
+.modevol-label-setting {
+    padding: 16px;
+    margin: 12px 0;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    background-color: var(--background-secondary);
+}
+
+.modevol-label-setting h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: var(--text-normal);
+}
+
+.modevol-label-preview {
+    padding: 12px;
+    margin-top: 8px;
+    background-color: var(--background-primary);
+    border-radius: 4px;
+    border: 1px solid var(--background-modifier-border);
+}
+
+.modevol-preview-label {
+    display: inline-block;
+    font-size: var(--font-ui-small);
+}
+
+.modevol-preview-icon {
+    margin-top: 4px;
+}

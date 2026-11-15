@@ -1,4 +1,4 @@
-import { hexToRgba, isValidHexColor } from "../src/colorUtils";
+import { hexToRgba, isValidHexColor } from "../src/utils/colorUtils";
 
 describe("Bug 10: hexToRgba utility", () => {
   it("converts 6-digit hex to rgba", () => {

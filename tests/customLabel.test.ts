@@ -60,9 +60,9 @@ jest.mock("obsidian", () => ({
   },
 }), { virtual: true });
 
-import ExpressionInterpreter from "../src/ExpressionInterpreter";
-import { LabelConfig } from "../src/settings";
-import { isCustomTagSymbol, setLabelConfigs } from "../src/ModevolWidget";
+import ExpressionInterpreter from "../src/labels/ExpressionInterpreter";
+import { LabelConfig } from "../src/settings/settings";
+import { isCustomTagSymbol, setLabelConfigs } from "../src/editor/ModevolWidget";
 
 describe("Bug 8: Custom label key is driven by config.custom", () => {
   function createConfigsWithCustomKey(key: string): LabelConfig[] {

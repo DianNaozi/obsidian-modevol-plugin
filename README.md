@@ -1,5 +1,74 @@
 # Obsidian Modevol plugin
 
+## 思维导图
+
+在 Markdown 笔记中执行 **Modevol Plugin: 打开思维导图**，在旁边分屏显示当前笔记的只读导图。重复执行复用面板，读取编辑器中尚未保存的文字。
+
+- 点击节点文字定位并选中原文；加减号折叠，拖动画布平移，滚轮缩放，“适应窗口”重置视野。
+- 编辑绑定笔记后约 250 ms 更新，保留缩放和平移；编辑其他笔记不会覆盖当前导图。
+- 保留 Markdown 富文本、主题配色、空白笔记提示和原文变化后的刷新处理。
+- 标题下的普通列表（含有序、任务和嵌套列表）不显示在导图中，原笔记不变。
+- 渐构标签段落按原文顺序显示为子节点，仅显示正文，不显示标签名称或胶囊；节点使用对应标签颜色的 1px 实线边框，背景按标签色 22% 与主题背景色 78% 混合，空正文显示“空内容”。所有导图节点统一为 6px 小圆角矩形。保留富文本、点击定位、自定义模式与启用状态，颜色设置变化后自动刷新。
+- 使用 `markmap-lib` 0.18.13 和 `mind-elixir` 5.15.1；最低 Obsidian 1.7.2，仅桌面。
+- 合并版与独立的 `jiangou-mindmap` 使用同一视图类型，请停用独立版后使用合并版。
+
+## 本地开发
+
+在本插件目录中使用 Yarn 1 安装依赖并运行开发命令：
+
+```sh
+yarn install          # 安装依赖
+yarn dev              # 监听源码修改并自动编译，Ctrl+C 停止
+yarn build            # 类型检查并生成生产构建
+yarn test             # 运行 Jest 测试并生成覆盖率报告
+yarn test:browser     # 构建并运行思维导图浏览器回归测试
+```
+
+构建入口为 `src/main.ts` 和 `src/styles.css`，输出为插件根目录的 `main.js`、`styles.css`。安装到 Obsidian 时，将这两个产物和 `manifest.json` 复制到 `<仓库>/.obsidian/plugins/obsidian-modevol-plugin/`，保留已有 `data.json`，重新加载并启用插件。
+
+Windows 浏览器测试使用已安装的 Edge；其他平台先运行 `yarn playwright install chromium`。Jest 与 Playwright 分别运行，互不替代。
+
+### 源码目录
+
+```text
+src/
+├── main.ts                     # 插件入口与生命周期
+├── mindmap/                    # 导图注册、视图、数据转换、定位和样式
+├── styles.css                  # CSS 构建入口
+├── editor/                     # 编辑器扩展与标签渲染
+│   ├── StateField.ts
+│   └── ModevolWidget.ts
+├── labels/                     # 标签模型与解析
+│   ├── Label.ts
+│   └── ExpressionInterpreter.ts
+├── outline/                    # 大纲视图
+│   ├── OutlineView.ts
+│   └── Outline.vue
+├── settings/                   # 设置定义与面板
+│   ├── settings.ts
+│   └── SettingTab.ts
+├── state/                      # 跨模块共享状态
+│   └── store.ts
+├── styles/                     # 动态样式管理与原渐构静态样式
+│   ├── StyleManager.ts
+│   └── modevol.css
+├── utils/                      # 通用工具
+│   ├── colorUtils.ts
+│   └── sanitizeSvg.ts
+└── types/
+    └── shims-vue.d.ts
+```
+
+单元测试放在 `tests/`，浏览器回归放在 `tests/browser/`。修改静态样式请编辑 `src/styles/modevol.css` 或 `src/mindmap/styles.css`，不要直接编辑生成的根目录 `styles.css`。构建会将 Mind Elixir 的样式限定在导图容器内，并保留其 MIT 许可证声明。
+
+### 合并验收（2026-11-08）
+
+- `yarn build`、10 个 Jest 测试套件（30 个用例）、5 个 Playwright 用例全部通过。
+- Obsidian 1.15.0 测试仓库已验证：合并版命令、分屏及面板复用、节点定位、编辑实时同步、缩放、拖动、适应窗口、原渐构标签颜色、设置面板和大纲层级。
+- 折叠/展开已通过浏览器自动测试；本轮桌面操作未能确认折叠结果，仍需实际应用复核。卸载清理由注册测试及视图关闭测试覆盖，未在桌面中单独执行停用测试。
+- 测试仓库保留 `合并插件验收.md` 作为回归样例；原 `导图测试.md` 已恢复并核对与备份一致。
+- 安装前配置及独立导图插件备份位于工作目录 `plugin-backups/modevol-integration-2026-11-07T18-05-00-523Z/`（目录时间戳为 UTC）。测试仓库仅启用合并版；独立版文件保留。
+
 ### 本版本修订 
 [x] 增加obsidian 插件配置面板，在obsidian插件面板中，自定义增加标签字母、对应的文本颜色和svg图案，以适应不同标签体系下颜色自定义。
 

@@ -1,5 +1,5 @@
-import ExpressionInterpreter from "../src/ExpressionInterpreter";
-import { LabelConfig } from "../src/settings";
+import ExpressionInterpreter from "../src/labels/ExpressionInterpreter";
+import { LabelConfig } from "../src/settings/settings";
 
 function createConfigs(): LabelConfig[] {
   return [

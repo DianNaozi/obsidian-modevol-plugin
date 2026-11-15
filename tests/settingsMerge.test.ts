@@ -1,4 +1,4 @@
-import { DEFAULT_SETTINGS, mergeSettings, ModevolSettings } from "../src/settings";
+import { DEFAULT_SETTINGS, mergeSettings, ModevolSettings } from "../src/settings/settings";
 
 test("mergeSettings keeps defaults when saved is null", () => {
   const merged = mergeSettings(DEFAULT_SETTINGS, null);

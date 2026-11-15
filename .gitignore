@@ -24,3 +24,6 @@ data.json
 # exclude test files
 coverage/
 yarn-error.log
+# Browser test artifacts
+test-results/
+playwright-report/
